@@ -1,0 +1,24 @@
+{// 引入标签库 }
+<tagLib name="html" />
+<include file="Public:header" />
+<div class="main">
+<div class="main_title">{$main_title}</div>
+<div class="blank5"></div>
+<div class="button_row">
+	<input type="button" class="button" value="{%DEL}" onclick="foreverdel();" />
+</div>
+<div class="blank5"></div>
+<html:list 
+	id="dataTable" 
+	style="dataTable" 
+	name="log" 
+	checkbox="true" 
+	action="true" 
+	datasource="list" 
+	show="id:{%ID}|50px,log_info:{%LOG_INFO},log_time|to_date:{%LOG_TIME},log_ip:{%LOG_IP},log_admin|get_admin_name:{%LOG_ADMIN},log_status|get_log_status:{%LOG_STATUS},module:{%MODULE},action:{%ACTION}" 
+	actionlist="foreverdel:{%FOREVERDEL}" /> 
+
+<div class="blank5"></div>
+<div class="page">{$page}</div>
+</div>
+<include file="Public:footer" />

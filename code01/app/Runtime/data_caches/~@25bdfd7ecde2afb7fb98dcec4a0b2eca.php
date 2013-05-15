@@ -1,0 +1,1 @@
+a:13:{s:2:"id";s:1:"1";s:4:"name";s:6:"福建";s:5:"uname";s:6:"fujian";s:9:"is_effect";s:1:"1";s:9:"is_delete";s:1:"0";s:3:"pid";s:1:"0";s:7:"is_open";s:1:"1";s:10:"is_default";s:1:"1";s:11:"description";s:171:"每天提供一单精品消费，为您精选餐厅、酒吧、KTV、SPA、美发店、瑜伽馆等特色商家，只要凑够最低团购人数就能享受无敌折扣。";s:6:"notice";s:24:"这是一则公告信息";s:9:"seo_title";s:0:"";s:11:"seo_keyword";s:0:"";s:15:"seo_description";s:0:"";}

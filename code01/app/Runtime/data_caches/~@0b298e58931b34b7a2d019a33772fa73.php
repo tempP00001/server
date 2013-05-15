@@ -1,0 +1,1 @@
+a:3:{i:0;a:4:{s:2:"id";s:1:"1";s:4:"name";s:6:"福建";s:7:"is_open";s:1:"1";s:3:"url";s:35:"/daminggong01/index.php?city=fujian";}i:1;a:4:{s:2:"id";s:1:"2";s:4:"name";s:6:"福州";s:7:"is_open";s:1:"0";s:3:"url";s:35:"/daminggong01/index.php?city=fuzhou";}i:2;a:4:{s:2:"id";s:1:"3";s:4:"name";s:6:"三明";s:7:"is_open";s:1:"1";s:3:"url";s:36:"/daminggong01/index.php?city=sanming";}}

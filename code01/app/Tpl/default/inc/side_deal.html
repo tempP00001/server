@@ -1,0 +1,22 @@
+	<div class="sbox side-goods-tip">
+	<div class="sbox-top"></div>
+	<div class="sbox-content">
+
+		<h2>{$LANG.SIDE_DEAL_LIST}</h2>
+		<ul>
+			{foreach from=$side_deal_list item=deal_item}
+			<li>
+				<a href="{$deal_item.url}" class="img">
+				<img alt="{$deal_item.name}" src="{$deal_item.icon}" />
+				</a>
+				<a href="{$deal_item.url}" class="title">
+				{$deal_item.name}			
+				</a>
+
+			</li>	
+			{/foreach}	
+		</ul>
+		<div class="blank"></div>
+	</div>
+	<div class="sbox-bottom"></div>
+</div>

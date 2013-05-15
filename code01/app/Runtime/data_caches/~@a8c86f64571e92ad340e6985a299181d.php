@@ -1,0 +1,1 @@
+a:7:{s:2:"id";s:1:"4";s:4:"tmpl";s:7:"default";s:6:"adv_id";s:15:"头部广告位";s:4:"code";s:76:"<img src="./public/attachment/201011/4ce4dca67ba99.png" alt="" border="0" />";s:9:"is_effect";s:1:"1";s:4:"name";s:12:"顶部广告";s:8:"city_ids";s:0:"";}

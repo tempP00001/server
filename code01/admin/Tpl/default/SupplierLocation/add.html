@@ -1,0 +1,97 @@
+{// 引入标签库 }
+<tagLib name="html" />
+<include file="Public:header" />
+<script src="http://ditu.google.cn/maps?file=api&v=2&key={:conf('GOOGLE_MAP_API_KEY')}&sensor=true"
+        type="text/javascript">
+</script>
+<script type="text/javascript">
+function loadGeoInfo()
+{
+	var address = $("input[name='api_address']").val();
+    var geocoder = new GClientGeocoder();
+    geocoder.getLatLng(
+    address,
+    function(point)
+    {	
+    	if(!point)
+    	{
+    		alert("{%NO_ADDRESS_API}");
+    	}
+    	else
+    	{
+			$("input[name='xpoint']").val(point.x);
+			$("input[name='ypoint']").val(point.y);
+    		return;
+    	}				
+    });
+}
+</script>
+<div class="main">
+<div class="main_title">[{$supplier_info.name}] {%ADD_LOCATION} <a href="{:u("SupplierLocation/index",array("supplier_id"=>$supplier_info['id']))}" class="back_list">{%BACK_LIST}</a></div>
+<div class="blank5"></div>
+<form name="edit" action="__APP__" method="post" enctype="multipart/form-data">
+<table class="form" cellpadding=0 cellspacing=0>
+	<tr>
+		<td colspan=2 class="topTd"></td>
+	</tr>
+	<tr>
+		<td class="item_title">{%NAME}:</td>
+		<td class="item_input"><input type="text" class="textbox require" name="name" /></td>
+	</tr>
+	<tr>
+		<td class="item_title">{%LOCATION_ADDRESS}:</td>
+		<td class="item_input"><textarea class="textarea" name="address" ></textarea></td>
+	</tr>	
+	<tr>
+		<td class="item_title">{%LOCATION_ROUTE}:</td>
+		<td class="item_input"><textarea class="textarea" name="route" ></textarea></td>
+	</tr>	
+	<tr>
+		<td class="item_title">{%LOCATION_TEL}:</td>
+		<td class="item_input"><input type="text" class="textbox" name="tel" /></td>
+	</tr>
+	<tr>
+		<td class="item_title">{%LOCATION_CONTACT}:</td>
+		<td class="item_input"><input type="text" class="textbox" name="contact" /></td>
+	</tr>
+	<tr>
+		<td class="item_title">{%LOCATION_OPENTIME}:</td>
+		<td class="item_input"><input type="text" class="textbox" name="open_time" /></td>
+	</tr>
+	<tr>
+		<td class="item_title">{%LOCATION_API_ADDRESS}:</td>
+		<td class="item_input">
+			<input type="text" class="textbox" name="api_address" />
+			<input type="button" class="button" value="{%LOCATE_POINT}" onclick="loadGeoInfo();" />
+		</td>
+	</tr>
+	<tr>
+		<td class="item_title">{%LOCATION_API_POINT}:</td>
+		<td class="item_input">
+			{%XPOINT}:<input type="text" class="textbox" name="xpoint" />
+			{%YPOINT}:<input type="text" class="textbox" name="ypoint" />
+		</td>
+	</tr>
+	<tr>
+		<td class="item_title">{%LOCATION_BRIEF}:</td>
+		<td class="item_input"><textarea class="textarea" name="brief" ></textarea></td>
+	</tr>
+	<tr>
+		<td class="item_title"></td>
+		<td class="item_input">
+			<!--隐藏元素-->
+			<input type="hidden" name="supplier_id" value="{$supplier_info.id}" />
+			<input type="hidden" name="{:conf("VAR_MODULE")}" value="SupplierLocation" />
+			<input type="hidden" name="{:conf("VAR_ACTION")}" value="insert" />
+			<!--隐藏元素-->
+			<input type="submit" class="button" value="{%ADD}" />
+			<input type="reset" class="button" value="{%RESET}" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2 class="bottomTd"></td>
+	</tr>
+</table>	 
+</form>
+</div>
+<include file="Public:footer" />

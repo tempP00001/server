@@ -1,0 +1,38 @@
+{// 引入标签库 }
+<tagLib name="html" />
+<script type="text/javascript">
+	function addRow(obj)
+	{
+		var html = $(obj.parentNode).html();
+		html = html.replace("addRow", "delRow");
+		html = html.replace("+", "-");
+		$("<div>"+html+"</div>").insertAfter($(obj.parentNode));
+	}
+	function delRow(obj)
+	{
+		$(obj.parentNode).remove();
+	}
+</script>
+<foreach name="goods_type_attr" item="attr_item">
+	<div>
+		{$attr_item.name}：
+		<if condition="$attr_item['input_type'] eq 0">
+			<input type="text" class="textbox" style="width:50px;" name="deal_attr[{$attr_item.id}][]" value="{$attr_item.attr_name}"  />			
+		</if>
+		<if condition="$attr_item['input_type'] eq 1">
+			<select name="deal_attr[{$attr_item.id}][]">
+			<foreach name="attr_item.attr_list" item="attr_row">
+				<option value="{$attr_row}" <if condition="$attr_item['attr_name'] eq $attr_row">selected="selected"</if>>{$attr_row}</option>
+			</foreach>
+			</select>			
+		</if>
+		{%ATTR_PRICE}：<input type="text" class="textbox" style="width:50px;" name="deal_attr_price[{$attr_item.id}][]" value="{$attr_item.price}" />
+		<if condition="$attr_item['is_first'] eq 1">
+		[ <a href="javascript:void(0);" onclick="addRow(this);" style="text-decoration:none;">+</a> ]
+		<else />
+		[ <a href="javascript:void(0);" onclick="delRow(this);" style="text-decoration:none;">-</a> ]
+		</if>
+		<div class="blank5"></div>
+	</div>
+	
+</foreach>

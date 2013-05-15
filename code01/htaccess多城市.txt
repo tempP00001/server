@@ -1,0 +1,52 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+RewriteRule ^wap\/(.*)$  wap\/$1 [QSA,L]
+RewriteRule ^api\/(\w+)$  api\.php\?act=$1 [QSA,L]
+
+# 重写图片验证码
+RewriteRule ^(\w+)\/verify&rand=(.*)$  verify\.php?city=$1&rand=$2 [QSA,L]
+
+# 邮件退订
+RewriteRule ^(\w+)\/subscribe\/unsubscribe&code=(.*)$  subscribe\.php\?city=$1&act=unsubscribe&code=$2 [QSA,L]
+RewriteRule ^(\w+)\/subscribe\/dounsubscribe&code=(.*)$  subscribe\.php\?city=$1&act=dounsubscribe&code=$2 [QSA,L]
+
+# 取回密码
+RewriteRule ^(\w+)\/user\/modify_password&code=(.*)$  user\.php\?city=$1&act=modify_password&code=$2 [QSA,L]
+
+#会员团购券
+RewriteRule ^(\w+)\/uc_coupon\/(\d+)$  uc_coupon\.php\?city=$1&act=index&id=$2 [QSA,L]
+
+# 重写城市
+RewriteRule ^(\w+)$  index\.php\?city=$1 [QSA,L]
+
+# 重写直接ID的访问
+RewriteRule ^(\w+)\/(\w+)\/(\d+)$  $2\.php\?city=$1&id=$3 [QSA,L]
+
+# 重写关于邀请链接
+RewriteRule ^(\w+)\/deal\/(\d+)\/r\/(\d+)$  deal\.php\?city=$1&id=$2&r=$3 [QSA,L]
+
+# 重写如 http://www.easethink.com/deal/
+RewriteRule ^(\w+)\/(\d+)$  index.php?city=$1&act=index&id=$2 [QSA,L]
+RewriteRule ^(\w+)\/(\w+)$  $2\.php?city=$1&act=index [QSA,L]
+RewriteRule ^(\w+)\/(\w+)&(.*)$  $2\.php?city=$1&act=index&$3 [QSA,L]
+
+# 重写如 http://www.easethink.com/deal/history
+RewriteRule ^(\w+)\/(\w+)\/(\w+)$  $2\.php\?city=$1&act=$3 [QSA,L]
+
+
+# 重写如 http://www.easethink.com/deal/history/1
+RewriteRule ^(\w+)\/(\w+)\/(\w+)\/(\d+)$  $2\.php\?city=$1&act=$3&id=$4 [QSA,L]
+
+# 重写如 http://www.easethink.com/deal/history/1&abc
+RewriteRule ^(\w+)\/(\w+)\/(\w+)\/(\d+)&(.*)$  $2\.php\?city=$1&act=$3&id=$4&$5 [QSA,L]
+
+# 重写如 http://www.easethink.com/link/go&abc
+RewriteRule ^(\w+)\/(\w+)\/(\w+)&(.*)$  $2\.php\?city=$1&act=$3&$4 [QSA,L]
+
+
+
+</IfModule>

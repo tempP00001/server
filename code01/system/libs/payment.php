@@ -1,0 +1,24 @@
+<?php
+// +----------------------------------------------------------------------
+// | EaseTHINK 易想团购系统
+// +----------------------------------------------------------------------
+// | Copyright (c) 2010 http://www.easethink.com All rights reserved.
+// +----------------------------------------------------------------------
+
+interface payment{	
+	/**
+	 * 获取支付代码或提示信息
+	 * @param integer $payment_log_id  支付单号ID
+	 */
+	function get_payment_code($payment_notice_id);
+	
+	//响应支付
+	function response($request);
+	
+	//响应通知
+	function notify($request);
+	
+	//获取接口的显示
+	function get_display_code();	
+}
+?>
